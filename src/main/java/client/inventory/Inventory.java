@@ -235,11 +235,6 @@ public class Inventory implements Iterable<Item> {
     }
 
     public void move(short sSlot, short dSlot, short slotMax) {
-        if (sSlot == dSlot) {
-            //I think we should ban this guy because you can't move a lot to itself
-            //And the result is, if slot 1 have 51 scroll, you would dupe it then you would have 100 scroll
-            return;
-        }
         lock.lock();
         try {
             Item source = inventory.get(sSlot);
